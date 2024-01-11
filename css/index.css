@@ -1,0 +1,23 @@
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: text-decoration 0.3s;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+body {
+    overflow: hidden;
+}
+
+#circle-type {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    white-space: pre;
+}
+
+#circle-type-container {
+    transition: top 0.4s ease, left 0.4s ease;
+}

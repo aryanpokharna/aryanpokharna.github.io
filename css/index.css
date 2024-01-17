@@ -1,3 +1,94 @@
+@font-face {
+    font-family: 'machina-light';
+    src: url(../assets/font/NeueMachina-Light.otf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'machina-light';
+
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    background-color: #000;
+}
+
+h1 {
+    font-size: 4rem;
+    margin: 2rem 0;
+    font-size: 10rem;
+    color: #fff;
+    -webkit-text-stroke: 1px #000;
+}
+
+.sticky h1 {
+    margin: 2rem 5rem;
+}
+
+.container p {
+    width: 50%;
+    margin: 2rem 0;
+}
+
+section {
+    height: 100vh;
+}
+
+.container {
+    padding: 5rem;
+}
+
+.sticky_parent {
+    height: 500vh;
+}
+
+.sticky {
+    overflow: hidden;
+    position: sticky;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    height: 100vh;
+}
+
+.sticky h1 {
+
+    margin: 0;
+    font-size: 20rem;
+    color: #fff;
+    -webkit-text-stroke: 1px #000;
+}
+
+.scroll_section {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 500vw;
+    will-change: transform;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5vw;
+}
+
+img {
+    width: 400px;
+    height: 80%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.social-links {
+    justify-content: space-between;
+    align-items: center;
+    font-size: 3rem;
+}
+
 a {
     text-decoration: none;
     color: inherit;
@@ -8,16 +99,62 @@ a:hover {
     text-decoration: underline;
 }
 
-body {
-    overflow: hidden;
-}
-
 #circle-type {
-    font-size: 1.2rem;
+    font-size: 0.6rem;
     text-transform: uppercase;
     white-space: pre;
+    top: 50%;
+    left: 50%;
 }
 
 #circle-type-container {
-    transition: top 0.4s ease, left 0.4s ease;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transition: top 0.1s ease, left 0.1s ease;
+}
+
+footer {
+    font-size: 1rem;
+    padding: 0.625rem;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100vw;
+}
+
+
+.row {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.col {
+    width: 12.5vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.col img {
+    width: 12.5vw;
+    height: 30vh;
+    padding: 0.5rem;
+    object-fit: cover;
+    object-position: center;
+}
+
+#cursor {
+    position: absolute;
+    z-index: 2;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: white;
+    pointer-events: none; /* This ensures that the cursor element doesn't interfere with other elements */
 }

@@ -1,3 +1,12 @@
+@font-face {
+    font-family: 'machina-light';
+    src: url(../assets/font/NeueMachina-Light.otf);
+}
+
+* {
+    font-family: 'machina-light';
+}
+
 footer {
     background-color: #fff;
     color: #000;

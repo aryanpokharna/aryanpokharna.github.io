@@ -19,15 +19,13 @@ html, body {
 }
 
 h1 {
-    font-size: 4rem;
-    margin: 2rem 0;
-    font-size: 10rem;
-    color: #fff;
+    font-size: 20vw;
     -webkit-text-stroke: 1px #000;
 }
 
 .sticky h1 {
-    margin: 2rem 5rem;
+    margin: 0;
+    font-size: 20vw;
 }
 
 .container p {
@@ -56,14 +54,6 @@ section {
     height: 100vh;
 }
 
-.sticky h1 {
-
-    margin: 0;
-    font-size: 20rem;
-    color: #fff;
-    -webkit-text-stroke: 1px #000;
-}
-
 .scroll_section {
     position: absolute;
     top: 0;
@@ -84,9 +74,7 @@ img {
 }
 
 .social-links {
-    justify-content: space-between;
-    align-items: center;
-    font-size: 3rem;
+    font-size: 10vw;
 }
 
 a {
@@ -103,15 +91,21 @@ a:hover {
     font-size: 0.6rem;
     text-transform: uppercase;
     white-space: pre;
-    top: 50%;
-    left: 50%;
 }
 
 #circle-type-container {
     z-index: 1;
-    top: 50%;
-    left: 50%;
     transition: top 0.1s ease, left 0.1s ease;
+}
+
+#cursor {
+    position: absolute;
+    z-index: 2;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: white;
+    pointer-events: none;
 }
 
 footer {
@@ -147,14 +141,4 @@ footer {
     padding: 0.5rem;
     object-fit: cover;
     object-position: center;
-}
-
-#cursor {
-    position: absolute;
-    z-index: 2;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background-color: white;
-    pointer-events: none; /* This ensures that the cursor element doesn't interfere with other elements */
 }

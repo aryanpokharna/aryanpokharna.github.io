@@ -33,6 +33,17 @@ document.addEventListener('DOMContentLoaded', function () {
     window.addEventListener('mousemove', circlePosition);
     window.addEventListener('scroll', circlePosition);
 
+    // let bgColor = getComputedStyle(document.elementFromPoint(e.clientX, e.clientY)).backgroundColor;
+
+    // let invertedColor = invertColor(bgColor);
+
+    // document.getElementById('cursor').style.backgroundColor = invertedColor;
+
+    // function invertColor(hex) {
+    //     return (Number(`0x1${hex}`) ^ 0xFFFFFF).toString(16).substr(1).toUpperCase()
+    // }
+
+
     const stickySections = [...document.querySelectorAll('.sticky')];
 
     let images = [

@@ -66,9 +66,12 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     let row_images = [
-        'https://dr.savee-cdn.com/things/6/5/9b7a86a89c0cfd224c5bdd.webp',
-        'https://dr.savee-cdn.com/things/6/5/9c23635b554afd05fb5273.webp',
-        'https://dr.savee-cdn.com/things/6/5/9c240c531dee3927eb256d.webp',
+        './assets/img/1.jpg',
+        './assets/img/2.jpg',
+        './assets/img/3.jpg',
+        './assets/img/4.jpg',
+        './assets/img/6.jpg',
+        './assets/img/7.jpg',
         'https://dr.savee-cdn.com/things/6/5/9c9821a1ef2bab5ad4e2bf.webp',
         'https://dr.savee-cdn.com/things/6/0/9dc4a1ab05ece5b554574a.webp',
         'https://dr.savee-cdn.com/things/6/4/c3edf6482c277e41c048a4.webp',

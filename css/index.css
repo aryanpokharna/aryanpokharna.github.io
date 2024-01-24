@@ -156,8 +156,8 @@ footer {
 
 .col img {
     width: 20vw;
-    height: 40vh;
-    padding: 0.5rem;
+    height: 50vh;
+    padding: 0.3rem;
     object-fit: cover;
     object-position: center;
 }

@@ -37,8 +37,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let images = [
         '',
-        'https://dr.savee-cdn.com/things/6/5/9b7a86a89c0cfd224c5bdd.webp',
-        'https://dr.savee-cdn.com/things/6/5/9c23635b554afd05fb5273.webp',
+        './assets/logo/familydinner-logos/familydinner-logos.jpeg',
+        './assets/logo/familydinner-logos/familydinner-logos_white.png',
         'https://dr.savee-cdn.com/things/6/5/9c240c531dee3927eb256d.webp',
         'https://dr.savee-cdn.com/things/6/5/9c9821a1ef2bab5ad4e2bf.webp'
     ];
@@ -60,25 +60,24 @@ document.addEventListener('DOMContentLoaded', function () {
     function transform(section) {
         const offsetTop = section.parentElement.offsetTop;
         const scrollSection = section.querySelector('.scroll_section');
+        // const heading = section.querySelector('h1');
         let percentage = ((window.scrollY - offsetTop) / window.innerHeight) * 100;
         percentage = percentage < 0 ? 0 : percentage > 400 ? 400 : percentage;
-        scrollSection.style.transform = `translate3d(${-(percentage)}vw, 0, 0)`
-
+        scrollSection.style.transform = `translate3d(${-(percentage)}vw, 0, 0)`;
+        // heading.style.transform = `translate3d(${-(percentage)}vw, 0, 0)`;
     };
 
     let row_images = [
         'assets/img/adrian.jpg',
+        'assets/img/capri.jpg',
         'assets/img/geneva_postcard.jpg',
         'assets/img/athens.jpeg',
-        'assets/img/capri.jpg',
         'assets/img/bellagio.jpg',
-        
-        'assets/img/jervis_bay_film_2.jpg',
         'assets/img/jervis_bay_postcard.jpg',
+        'assets/img/jervis_bay_film_2.jpg',
         'assets/img/london.jpg',
         'assets/img/lisbon_postcard.jpg',
         'assets/img/utrecht_film_2.jpg',
-        
         'assets/img/naxos.jpg',
         'assets/img/vatican.jpg',
         'assets/img/malta.jpg',
@@ -89,7 +88,6 @@ document.addEventListener('DOMContentLoaded', function () {
         'assets/img/naxos_postcard_lower.jpg',
         'assets/img/victoria.jpg',
         'assets/img/vienna.jpg',
-
     ];
 
     const columns = [...document.querySelectorAll('.col')];

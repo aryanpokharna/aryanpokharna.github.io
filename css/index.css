@@ -36,9 +36,28 @@ h1 {
     margin: 2rem 0;
 }
 
+.container_introduction {
+    font-size: 10vw;
+    padding: 5rem;
+}
+
+.container_introduction h1{
+    color: #000;
+    text-align: left;
+    text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
+    padding: 0rem;
+}
+
+.container_introduction p {
+    width: 60%;
+    margin: 2rem 0;
+    font-size: 5vw;
+}
+
 section {
     height: 100vh;
     display: flex;
+    overflow: hidden;
 }
 
 .container {

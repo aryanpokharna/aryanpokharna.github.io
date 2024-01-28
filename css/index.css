@@ -70,6 +70,12 @@ section {
     height: 100vh;
 }
 
+.sticky h1 {
+    line-height: 100vh;
+    text-align: center;
+    margin: 0;
+}
+
 .scroll_section {
     position: absolute;
     top: 0;
@@ -82,11 +88,13 @@ section {
     padding: 0 5vw;
 }
 
-img {
-    width: 400px;
-    height: 80%;
+.scroll_section img {
+    /* width: 400px; */
+    z-index: 2;
+    height: 50vh;
     object-fit: cover;
     object-position: center;
+    border-radius: 50px;
 }
 
 .social-links {

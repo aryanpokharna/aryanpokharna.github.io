@@ -36,11 +36,14 @@ document.addEventListener('DOMContentLoaded', function () {
     const stickySections = [...document.querySelectorAll('.sticky')];
 
     let images = [
-        '',
+        'https://dr.savee-cdn.com/things/6/5/9c9821a1ef2bab5ad4e2bf.webp',
+        'https://dr.savee-cdn.com/things/6/5/9c9821a1ef2bab5ad4e2bf.webp',
+        'https://dr.savee-cdn.com/things/6/5/9c9821a1ef2bab5ad4e2bf.webp',
         './assets/logo/familydinner-logos/familydinner-logos.jpeg',
-        './assets/logo/familydinner-logos/familydinner-logos_white.png',
-        'https://dr.savee-cdn.com/things/6/5/9c240c531dee3927eb256d.webp',
-        'https://dr.savee-cdn.com/things/6/5/9c9821a1ef2bab5ad4e2bf.webp'
+        './assets/logo/thirdspace/thirdspace-ss.png',
+        'https://dr.savee-cdn.com/things/6/5/9c9821a1ef2bab5ad4e2bf.webp',
+        'https://dr.savee-cdn.com/things/6/5/9c9821a1ef2bab5ad4e2bf.webp',
+        'https://dr.savee-cdn.com/things/6/5/9c9821a1ef2bab5ad4e2bf.webp',
     ];
 
     images.forEach(img => {
@@ -60,11 +63,9 @@ document.addEventListener('DOMContentLoaded', function () {
     function transform(section) {
         const offsetTop = section.parentElement.offsetTop;
         const scrollSection = section.querySelector('.scroll_section');
-        // const heading = section.querySelector('h1');
         let percentage = ((window.scrollY - offsetTop) / window.innerHeight) * 100;
         percentage = percentage < 0 ? 0 : percentage > 400 ? 400 : percentage;
         scrollSection.style.transform = `translate3d(${-(percentage)}vw, 0, 0)`;
-        // heading.style.transform = `translate3d(${-(percentage)}vw, 0, 0)`;
     };
 
     let row_images = [

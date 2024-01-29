@@ -36,14 +36,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const stickySections = [...document.querySelectorAll('.sticky')];
 
     let images = [
-        'https://dr.savee-cdn.com/things/6/5/9c9821a1ef2bab5ad4e2bf.webp',
-        'https://dr.savee-cdn.com/things/6/5/9c9821a1ef2bab5ad4e2bf.webp',
-        'https://dr.savee-cdn.com/things/6/5/9c9821a1ef2bab5ad4e2bf.webp',
-        './assets/logo/familydinner-logos/familydinner-logos.jpeg',
-        './assets/logo/thirdspace/thirdspace-ss.png',
-        'https://dr.savee-cdn.com/things/6/5/9c9821a1ef2bab5ad4e2bf.webp',
-        'https://dr.savee-cdn.com/things/6/5/9c9821a1ef2bab5ad4e2bf.webp',
-        'https://dr.savee-cdn.com/things/6/5/9c9821a1ef2bab5ad4e2bf.webp',
+        'assets/logo/cache/cache_orange.png',
+        'assets/logo/cottonsocks/cottonsocks_light_2.png',
+        'assets/logo/familydinner/familydinner_logos.jpeg',
+        'assets/logo/thirdspace/thirdspace-ss-2.png',
+        'assets/logo/when2holiday/when2holiday.png',
     ];
 
     images.forEach(img => {

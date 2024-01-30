@@ -37,7 +37,7 @@ h1 {
 }
 
 section {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     overflow: hidden;
 }
@@ -209,7 +209,7 @@ body.modal-open {
 
 .container_introduction {
     font-size: 10vw;
-    /* padding: 5rem; */
+    padding: 2rem;
     overflow: visible;
 }
 
@@ -229,9 +229,9 @@ body.modal-open {
 }
 
 .container_introduction_image {
-    flex-basis: 50%;
+    max-width: 50vw;
+    height: auto;
     object-fit: cover;
-    height: 80%;
     border-radius: 150px;
     padding: 2rem;
 }
@@ -239,7 +239,7 @@ body.modal-open {
 .container_introduction_split {
     display: flex;
     justify-content: center;
-    /* align-items: center; */
+    align-items: center;
     width: 100%;
     height: 100%;
 }
@@ -260,5 +260,40 @@ body.modal-open {
 
     .container_introduction_split {
         display: block;
+    }
+
+    .container_introduction h1 {
+        font-size: 30vw;
+    }
+
+    .container_introduction p {
+        font-size: xx-large;
+        width: 100%;
+    }
+
+    .container_introduction {
+        padding: 0rem;
+    }
+
+    #cursor {
+        display: none;
+    }
+
+    #circle-type-container {
+        display: none;
+    }
+
+    .lets_connect h1 {
+        font-size: 200%;
+        text-align: center;
+    }
+
+    .container {
+        flex-direction: column;
+    }
+    
+    .social-links {
+        text-align: center;
+        font-size: 15vh;
     }
 }

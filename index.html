@@ -33,23 +33,39 @@
 
         <section>
             <div class="container_introduction">
-                <h1>hi im aryan</h1>
-                <p>I'm a developer and designer based in Sydney, Australia.</p>
-                <p>Graduated from The University of Sydney.</p>
-                <p>I build aesthetic and functional full-stack platforms.</p>
-                <p>Fueled by my passion for startups, I'd like to share some concepts of my own. <i class="fa-solid fa-arrow-turn-down"></i></p>
+
+                
+                <div class="container_introduction_split">
+                    <div class="side_text">
+                        <h1>hi im aryan</h1>
+                        <p>I'm a full-stack developer based in Sydney, Australia.</p>
+                        <p>Through my studies at The University of Sydney, I have gained proficiency in the following:</p>
+                        <p>Languages: C, C++, CSS, HTML, Java, JavaScript, Python, React, SQL</p>
+                        <p>Technologies: AWS EC2, Git, Jenkins, JaCoCo, Junit, ngrok, VSCode</p>
+                        <p>Media: Adobe Photoshop, Adobe Premiere, Final Cut Pro X</p>
+                        <!-- <p>Fuelled by my passion for startups, I'd like to share some concepts of my own. <i class="fa-solid fa-arrow-turn-down"></i></p> -->
+                    </div>
+                    <img class="container_introduction_image" src="assets/img/headshot.jpg">
+                </div>
             </div>
         </section>
 
-        <div class="sticky_parent">
+        <!-- <div class="sticky_parent">
             <div class="sticky">
                 <h1>my concepts</h1>
                 <div class="scroll_section">
                 </div>
             </div>
+        </div> -->
+
+        <div class="modal" id="myModal">
+            <span class="close" onclick="closeModal()">
+                <i class="fa-solid fa-square-xmark"></i>
+            </span>
+            <div id="modalContent"></div>
         </div>
         
-        <section>
+        <section class="lets_connect">
             <div class="container">
                 <h1>let's connect</h1>
                 <div class="social-links">

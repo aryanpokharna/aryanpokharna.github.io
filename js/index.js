@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const stickySections = [...document.querySelectorAll('.sticky')];
 
-    let images = [
+    const images = [
         'assets/logo/cache/cache_orange.png',
         'assets/logo/cottonsocks/cottonsocks_light_2.png',
         'assets/logo/familydinner/familydinner_logos.jpeg',
@@ -43,13 +43,45 @@ document.addEventListener('DOMContentLoaded', function () {
         'assets/logo/when2holiday/when2holiday.png',
     ];
 
-    images.forEach(img => {
+    images.forEach(imgSrc => {
         stickySections.forEach(section => {
+
+            let anchor = document.createElement('a');
+            let array = imgSrc.split('/')
+            let folderName = array[array.length - 2];
+    
+            anchor.href = `pages/concepts/${folderName}.html`;
+
             let image = document.createElement('img');
-            image.src = img;
-            section.querySelector('.scroll_section').appendChild(image);
+            image.src = imgSrc;
+    
+            anchor.appendChild(image);
+            section.querySelector('.scroll_section').appendChild(anchor);
+
+            image.addEventListener('click', function(event) {
+                event.preventDefault();
+                openModal(anchor.href);
+            });
         });
     });
+
+    function openModal(pageURL) {
+        document.body.classList.add('modal-open');
+        // Open the modal and load content
+        const modal = document.getElementById('myModal');
+        const modalContent = document.getElementById('modalContent');
+
+        // Load content from the pageURL into modalContent
+        modalContent.innerHTML = ''; // Clear previous content
+        const iframe = document.createElement('iframe');
+        iframe.src = pageURL;
+        iframe.style.width = '100%';
+        iframe.style.height = '100%';
+        modalContent.appendChild(iframe);
+
+        // Display the modal
+        modal.style.display = 'flex';
+    };
 
     window.addEventListener('scroll', (e) => {
         for(let i = 0; i < stickySections.length; i++) {
@@ -99,6 +131,13 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
+function closeModal() {
+    // Close the modal
+    const modal = document.getElementById('myModal');
+    modal.style.display = 'none';
+    document.body.classList.remove('modal-open');
+};
 
 // document.addEventListener('DOMContentLoaded', function () {
 //     const cursor = document.getElementById('cursor');

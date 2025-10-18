@@ -1,143 +1,142 @@
-document.addEventListener('DOMContentLoaded', function () {
-    var circleType = new CircleType(document.getElementById('circle-type'));
-    var container = document.getElementById('circle-type-container');
-    var mouseX = 0, mouseY = 0;
-    var scrollY = 0;
-    var cursor = document.getElementById('cursor');
+document.addEventListener("DOMContentLoaded", function () {
+  var container = document.getElementById("circle-type-container");
+  var mouseX = 0;
+  var mouseY = 0;
+  var scrollY = 0;
+  var cursor = document.getElementById("cursor");
 
-    function circlePosition(e) {
-        if (e.type === 'mousemove') {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-        } else if (e.type === 'scroll') {
-            scrollY = window.scrollY;
-        }
-
-        requestAnimationFrame(updatePosition);
+  function circlePosition(e) {
+    if (e.type === "mousemove") {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    } else if (e.type === "scroll") {
+      scrollY = window.scrollY;
     }
 
-        // console.log(mouseX, mouseY, scrollX, scrollY, container.style.top, container.style.left);
+    requestAnimationFrame(updatePosition);
+  }
 
-    function updatePosition() {
-        container.style.position = 'absolute';
-        container.style.top = mouseY + scrollY + 'px';
-        container.style.left = mouseX + 'px';
-        container.style.transform = 'translate(-50%, -50%) rotate(' + scrollY + 'deg)';
+  // console.log(mouseX, mouseY, scrollX, scrollY, container.style.top, container.style.left);
 
-        cursor.style.position = 'absolute';
-        cursor.style.top = mouseY + scrollY  - cursor.offsetHeight / 2 + 'px';
-        cursor.style.left = mouseX - cursor.offsetWidth / 2 + 'px';
+  function updatePosition() {
+    container.style.position = "absolute";
+    container.style.top = mouseY + scrollY + "px";
+    container.style.left = mouseX + "px";
+    container.style.transform =
+      "translate(-50%, -50%) rotate(" + scrollY + "deg)";
 
+    cursor.style.position = "absolute";
+    cursor.style.top = mouseY + scrollY - cursor.offsetHeight / 2 + "px";
+    cursor.style.left = mouseX - cursor.offsetWidth / 2 + "px";
+  }
+
+  window.addEventListener("mousemove", circlePosition);
+  window.addEventListener("scroll", circlePosition);
+
+  const stickySections = [...document.querySelectorAll(".sticky")];
+
+  const images = [
+    "assets/logo/cache/cache_orange.png",
+    "assets/logo/cottonsocks/cottonsocks_light_2.png",
+    "assets/logo/familydinner/familydinner_logos.jpeg",
+    "assets/logo/thirdspace/thirdspace-ss-2.png",
+    "assets/logo/when2holiday/when2holiday.png",
+  ];
+
+  images.forEach((imgSrc) => {
+    stickySections.forEach((section) => {
+      let anchor = document.createElement("a");
+      let array = imgSrc.split("/");
+      let folderName = array[array.length - 2];
+
+      anchor.href = `pages/concepts/${folderName}.html`;
+
+      let image = document.createElement("img");
+      image.src = imgSrc;
+
+      anchor.appendChild(image);
+      section.querySelector(".scroll_section").appendChild(anchor);
+
+      image.addEventListener("click", function (event) {
+        event.preventDefault();
+        openModal(anchor.href);
+      });
+    });
+  });
+
+  function openModal(pageURL) {
+    document.body.classList.add("modal-open");
+    // Open the modal and load content
+    const modal = document.getElementById("myModal");
+    const modalContent = document.getElementById("modalContent");
+
+    // Load content from the pageURL into modalContent
+    modalContent.innerHTML = ""; // Clear previous content
+    const iframe = document.createElement("iframe");
+    iframe.src = pageURL;
+    iframe.style.width = "100%";
+    iframe.style.height = "100%";
+    modalContent.appendChild(iframe);
+
+    // Display the modal
+    modal.style.display = "flex";
+  }
+
+  window.addEventListener("scroll", (e) => {
+    for (let i = 0; i < stickySections.length; i++) {
+      transform(stickySections[i]);
     }
+  });
 
-    window.addEventListener('mousemove', circlePosition);
-    window.addEventListener('scroll', circlePosition);
+  function transform(section) {
+    const offsetTop = section.parentElement.offsetTop;
+    const scrollSection = section.querySelector(".scroll_section");
+    let percentage = ((window.scrollY - offsetTop) / window.innerHeight) * 100;
+    percentage = percentage < 0 ? 0 : percentage > 400 ? 400 : percentage;
+    scrollSection.style.transform = `translate3d(${-percentage}vw, 0, 0)`;
+  }
 
-    const stickySections = [...document.querySelectorAll('.sticky')];
+  let row_images = [
+    "assets/img/adrian.jpg",
+    "assets/img/capri.jpg",
+    "assets/img/geneva_postcard.jpg",
+    "assets/img/athens.jpeg",
+    "assets/img/bellagio.jpg",
+    "assets/img/jervis_bay_postcard.jpg",
+    "assets/img/jervis_bay_film_2.jpg",
+    "assets/img/london.jpg",
+    "assets/img/lisbon_postcard.jpg",
+    "assets/img/utrecht_film_2.jpg",
+    "assets/img/naxos.jpg",
+    "assets/img/vatican.jpg",
+    "assets/img/malta.jpg",
+    "assets/img/sorrento_postcard.jpg",
+    "assets/img/utrecht_film.jpg",
+    "assets/img/jervis_bay_film.jpg",
+    "assets/img/utrecht_postcard.jpg",
+    "assets/img/naxos_postcard_lower.jpg",
+    "assets/img/victoria.jpg",
+    "assets/img/vienna.jpg",
+  ];
 
-    const images = [
-        'assets/logo/cache/cache_orange.png',
-        'assets/logo/cottonsocks/cottonsocks_light_2.png',
-        'assets/logo/familydinner/familydinner_logos.jpeg',
-        'assets/logo/thirdspace/thirdspace-ss-2.png',
-        'assets/logo/when2holiday/when2holiday.png',
-    ];
+  const columns = [...document.querySelectorAll(".col")];
 
-    images.forEach(imgSrc => {
-        stickySections.forEach(section => {
-
-            let anchor = document.createElement('a');
-            let array = imgSrc.split('/')
-            let folderName = array[array.length - 2];
-    
-            anchor.href = `pages/concepts/${folderName}.html`;
-
-            let image = document.createElement('img');
-            image.src = imgSrc;
-    
-            anchor.appendChild(image);
-            section.querySelector('.scroll_section').appendChild(anchor);
-
-            image.addEventListener('click', function(event) {
-                event.preventDefault();
-                openModal(anchor.href);
-            });
-        });
-    });
-
-    function openModal(pageURL) {
-        document.body.classList.add('modal-open');
-        // Open the modal and load content
-        const modal = document.getElementById('myModal');
-        const modalContent = document.getElementById('modalContent');
-
-        // Load content from the pageURL into modalContent
-        modalContent.innerHTML = ''; // Clear previous content
-        const iframe = document.createElement('iframe');
-        iframe.src = pageURL;
-        iframe.style.width = '100%';
-        iframe.style.height = '100%';
-        modalContent.appendChild(iframe);
-
-        // Display the modal
-        modal.style.display = 'flex';
-    };
-
-    window.addEventListener('scroll', (e) => {
-        for(let i = 0; i < stickySections.length; i++) {
-            transform(stickySections[i]);
-        };
-    });
-
-    function transform(section) {
-        const offsetTop = section.parentElement.offsetTop;
-        const scrollSection = section.querySelector('.scroll_section');
-        let percentage = ((window.scrollY - offsetTop) / window.innerHeight) * 100;
-        percentage = percentage < 0 ? 0 : percentage > 400 ? 400 : percentage;
-        scrollSection.style.transform = `translate3d(${-(percentage)}vw, 0, 0)`;
-    };
-
-    let row_images = [
-        'assets/img/adrian.jpg',
-        'assets/img/capri.jpg',
-        'assets/img/geneva_postcard.jpg',
-        'assets/img/athens.jpeg',
-        'assets/img/bellagio.jpg',
-        'assets/img/jervis_bay_postcard.jpg',
-        'assets/img/jervis_bay_film_2.jpg',
-        'assets/img/london.jpg',
-        'assets/img/lisbon_postcard.jpg',
-        'assets/img/utrecht_film_2.jpg',
-        'assets/img/naxos.jpg',
-        'assets/img/vatican.jpg',
-        'assets/img/malta.jpg',
-        'assets/img/sorrento_postcard.jpg',
-        'assets/img/utrecht_film.jpg',
-        'assets/img/jervis_bay_film.jpg',
-        'assets/img/utrecht_postcard.jpg',
-        'assets/img/naxos_postcard_lower.jpg',
-        'assets/img/victoria.jpg',
-        'assets/img/vienna.jpg',
-    ];
-
-    const columns = [...document.querySelectorAll('.col')];
-
-    columns.forEach((column, columnIndex) => {
-        for (let i = 0; i < 4; i++) {
-            let image = document.createElement('img');
-            let imageIndex = columnIndex * 4 + i;
-            image.src = row_images[imageIndex];
-            column.appendChild(image);
-        }
-    });
+  columns.forEach((column, columnIndex) => {
+    for (let i = 0; i < 4; i++) {
+      let image = document.createElement("img");
+      let imageIndex = columnIndex * 4 + i;
+      image.src = row_images[imageIndex];
+      column.appendChild(image);
+    }
+  });
 });
 
 function closeModal() {
-    // Close the modal
-    const modal = document.getElementById('myModal');
-    modal.style.display = 'none';
-    document.body.classList.remove('modal-open');
-};
+  // Close the modal
+  const modal = document.getElementById("myModal");
+  modal.style.display = "none";
+  document.body.classList.remove("modal-open");
+}
 
 // document.addEventListener('DOMContentLoaded', function () {
 //     const cursor = document.getElementById('cursor');
@@ -152,7 +151,7 @@ function closeModal() {
 //         // Check if the hovered element is an image with the 'hover-image' class
 //         if (hoveredElement && hoveredElement.classList.contains('img')) {
 //             // Get the background color of the hovered image
-            
+
 //             const bgColor = getComputedStyle(hoveredElement).backgroundColor;
 
 //             // Set the cursor's background color to the image's background color
